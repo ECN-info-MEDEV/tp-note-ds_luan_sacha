@@ -3,7 +3,7 @@ package org.centrale.medev_ds;
 public class DivisionByZeroException extends Exception {
 
     public DivisionByZeroException() {
-        super("Division by zero not allowed");
+        super("Division by zero not allowed"); //en effet
     }
 
     public DivisionByZeroException(String message) {
