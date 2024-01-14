@@ -5,9 +5,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import
- 
-static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  *
@@ -42,5 +41,11 @@ public class PreparationDSTest {
     @Test
     public void testDivideNumbers() throws Exception {
         assertEquals(2.5F, PreparationDS.divideNumbers(10,4));
+    }
+    
+    @Test
+    public void testDivideNumbers2() {
+        Exception exception = assertThrows(DivisionByZeroException.class, () -> PreparationDS.divideNumbers(10, 0));
+        assertEquals("Division by zero not allowed", exception.getMessage());
     }
 }
