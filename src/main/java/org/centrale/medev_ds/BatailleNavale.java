@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author sacha
  */
 public class BatailleNavale {
+
     private int tailleGrille;
     private Joueur j1;
     private Joueur j2;
@@ -28,7 +29,6 @@ public class BatailleNavale {
         j1.setEst1(true);
         j2 = new Joueur();
         j2.setEst1(false);
-
     }
     
     /**
@@ -38,11 +38,14 @@ public class BatailleNavale {
      */
     public void init(){
         placementNavires(j1);
+        System.out.println("Tour du Joueur 2");
         placementNavires(j2);
         boolean jeu = true;
         boolean jeu1, jeu2;
         while (jeu) {
+            System.out.println("Tour du Joueur 1");
             jeu1 = tourDeJeu(j1);
+            System.out.println("Tour du Joueur 2");
             jeu2 = tourDeJeu(j2);
             jeu = jeu1 || jeu2;
         }
@@ -67,7 +70,7 @@ public class BatailleNavale {
             System.out.println("Taille : "+b.getTaille());
             System.out.println("Vous devrez inscrire les coordonnées initiales et finales correspondant aux deux bouts du bateau\nUn bateau ne peut être que en position verticale ou horizontale\n");
             boolean valide = false;
-            while(!valide) {
+            while (!valide) {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Coordonnée initiale en X ?");
                 int debutX = sc.nextInt();
@@ -79,8 +82,8 @@ public class BatailleNavale {
                 int finY = sc.nextInt();
 
                 int tailleCalculee = Math.abs(finX - debutX) + Math.abs(finY - debutY) + 1;
-                if((debutX == finX || debutY == finY) && tailleCalculee == b.getTaille()) {
-                    b.setPosition(debutX, debutY, finX, finY); 
+                if ((debutX == finX || debutY == finY) && tailleCalculee == b.getTaille()) {
+                    b.setPosition(debutX, debutY, finX, finY);
                     valide = true;
                     j.getListeBateau().add(b);
                 } else {
@@ -89,6 +92,43 @@ public class BatailleNavale {
             }
         }
     }
+ /**
+     * Effectue un tour de jeu pour un joueur donné.
+     * @param j Le joueur pour lequel effectuer le tour.
+     * @return true si le jeu doit continuer, false sinon.
+     */
+    public boolean tourDeJeu(Joueur j) {
+        boolean valide = false;
+        while (!valide) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Coordonnée en X où vous voulez tirer:");
+            int tirX = sc.nextInt();
+            System.out.println("Coordonnée en Y où vous voulez tirer:");
+            int tirY = sc.nextInt();
+
+            Coordonnee coordonneeAtaque = new Coordonnee(tirX, tirY);
+            ArrayList<Bateau> listeBateauEnnemi;
+            if (j.getEst1()){
+                listeBateauEnnemi = this.j2.getListeBateau();
+            }
+            else {
+                listeBateauEnnemi = this.j1.getListeBateau();  
+            }
+            for (Bateau bateau: listeBateauEnnemi){
+
+            if (bateau.bonTir(coordonneeAtaque)) {
+                System.out.println("Attaque réussi");
+                bateau.removeCoordonnee(coordonneeAtaque);
+            } else {
+                System.out.println("Attaque rateé");
+            }
+
+        }
+            
+        }
+        return true;
+    }
+
     
     /**
      * Affiche la grille avec les positions des bateaux pour un joueur donné.
@@ -122,16 +162,6 @@ public class BatailleNavale {
         System.out.println(); 
     }
     
-    /**
-     * Effectue un tour de jeu pour un joueur donné.
-     * @param j Le joueur pour lequel effectuer le tour.
-     * @return true si le jeu doit continuer, false sinon.
-     */
-    public static boolean tourDeJeu(Joueur j){
-        // À compléter selon la logique du tour de jeu
-        return true;
-    }
-
     public int getTailleGrille() {
         return tailleGrille;
     }
@@ -156,6 +186,5 @@ public class BatailleNavale {
         this.j2 = j2;
     }
     
-    
-    
+  
 }

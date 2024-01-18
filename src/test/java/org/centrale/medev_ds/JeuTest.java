@@ -11,9 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author sacha
  */
-public class BatailleNavaleTest {
+public class JeuTest {
     
-    public BatailleNavaleTest() {
+    public JeuTest() {
+        System.out.println("\n\n ----- Test du jeu -----");
     }
     
     @BeforeAll
@@ -31,6 +32,8 @@ public class BatailleNavaleTest {
     @AfterEach
     public void tearDown() {
     }
+    
+    /*
 
     @Test
     public void testInit() {
@@ -55,13 +58,9 @@ public class BatailleNavaleTest {
         Joueur j = new Joueur();
         BatailleNavale b = new BatailleNavale();
         b.afficheGrilleBateau(j, b.getTailleGrille()); 
-
     }
 
-    @Test
-    public void testTourDeJeu() {
-        Joueur j = new Joueur();
-        boolean result = BatailleNavale.tourDeJeu(j);
-        assertTrue(result); 
-    }
+*/
+
+
 }

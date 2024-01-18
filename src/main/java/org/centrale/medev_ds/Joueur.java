@@ -26,7 +26,7 @@ public class Joueur {
         this.listeBateau = listeBateau;
     }
 
-    public boolean isEst1() {
+    public boolean getEst1() {
         return est1;
     }
 

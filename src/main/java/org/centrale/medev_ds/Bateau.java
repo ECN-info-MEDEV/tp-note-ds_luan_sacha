@@ -66,7 +66,15 @@ public class Bateau {
             System.out.println("Le bateau n'a pas une position valide");
         }
     }
+    
+    public boolean bonTir(Coordonnee coordonnee) {
+        return this.coordenadas.contains(coordonnee);
+    }
 
+    public void removeCoordonnee(Coordonnee coordonnee) {
+        coordenadas.remove(coordonnee);
+    }
+    
     /**
      * Obtient la taille du bateau.
      * 

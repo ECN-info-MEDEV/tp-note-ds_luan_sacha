@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BateauTest {
     
     public BateauTest() {
+        System.out.println("\n\n ----- Test des mécaniques principales -----");
     }
     
     @BeforeAll
