@@ -34,7 +34,7 @@ public class BatailleNavale {
     
     /**
      * Place les navires au début du jeu
-     * @param j
+     * @param j joeur
      */
     public static void placementNavires(Joueur j){
         System.out.println("Placement des navires");
