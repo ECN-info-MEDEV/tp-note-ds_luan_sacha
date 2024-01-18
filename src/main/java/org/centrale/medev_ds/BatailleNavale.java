@@ -5,22 +5,34 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- *
+ * Classe principale représentant le jeu de la Bataille Navale.
+ * Permet aux joueurs de placer leurs navires sur une grille, puis initie un jeu au tour par tour jusqu'à ce qu'un joueur gagne.
+ * Utilise une interface console pour l'interaction.
+ * 
  * @author sacha
  */
 public class BatailleNavale {
     private int tailleGrille;
-    Joueur j1;
-    Joueur j2;
-    
-    public BatailleNavale(){
+    private Joueur j1;
+    private Joueur j2;
+
+    /**
+     * Constructeur pour le jeu de la Bataille Navale.
+     * Demande aux utilisateurs de saisir la taille de la grille et initialise deux joueurs.
+     */
+    public BatailleNavale() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Choisissez la taille de la grille :");
         tailleGrille = sc.nextInt();
-        Joueur j1 = new Joueur();
-        Joueur j2 = new Joueur();
+        j1 = new Joueur();
+        j2 = new Joueur();
     }
-
+    
+    /**
+     * Initialise le jeu avant le début des tours
+     * - placement des navires pour les deux joueurs
+     * - lancement du jeu (boucle while qui s'arrête quand un des deux joueurs demande à arreter le jeu, fonctionnalité à ajouter plus tard)
+     */
     public void init(){
         placementNavires(j1);
         placementNavires(j2);
@@ -32,12 +44,14 @@ public class BatailleNavale {
             jeu = jeu1 || jeu2;
         }
     }
-    
+
     /**
-     * Place les navires au début du jeu
-     * @param j joeur
+     * Initialise le jeu en plaçant les navires pour les deux joueurs.
+     * Les navires sont placés en demandant à chaque joueur d'entrer les coordonnées initiales et finales correspondant aux deux extrémités du bateau.
+     * Un bateau ne peut être placé qu'en position verticale ou horizontale.
+     * @param j Joueur qui doit placer ses navires
      */
-    public static void placementNavires(Joueur j){
+    public static void placementNavires(Joueur j) {
         System.out.println("Placement des navires");
         ArrayList<Bateau> bateauxPlacer = new ArrayList();
         bateauxPlacer.add(new Cuirasse());
@@ -70,13 +84,19 @@ public class BatailleNavale {
                     System.out.println("Placement invalide. Veuillez entrer des coordonnées valides pour un bateau de taille " + b.getTaille());
                 }
             }
-            
         }
     }
     
-    public static void afficheGrilleBateau(Joueur j, int tailleGrille){
+    /**
+     * Affiche la grille avec les positions des bateaux pour un joueur donné.
+     * Les positions des bateaux sont marquées par 'O' dans la grille.
+     * 
+     * @param j Le joueur pour lequel afficher la grille.
+     * @param tailleGrille La taille de la grille.
+     */
+    public static void afficheGrilleBateau(Joueur j, int tailleGrille) {
         char[][] grille = new char[tailleGrille][tailleGrille];
-            for (char[] row : grille) {
+        for (char[] row : grille) {
             Arrays.fill(row, '.');
         }
         for (Bateau b : j.getListeBateau()) {
@@ -99,8 +119,13 @@ public class BatailleNavale {
         System.out.println(); 
     }
     
+    /**
+     * Effectue un tour de jeu pour un joueur donné.
+     * @param j Le joueur pour lequel effectuer le tour.
+     * @return true si le jeu doit continuer, false sinon.
+     */
     public static boolean tourDeJeu(Joueur j){
-        
+        // À compléter selon la logique du tour de jeu
         return true;
     }
 }

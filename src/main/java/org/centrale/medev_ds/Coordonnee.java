@@ -24,4 +24,24 @@ public class Coordonnee {
     public int getY() {
         return y;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Coordonnee other = (Coordonnee) obj;
+        return x == other.x && y == other.y;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + this.x;
+        hash = 83 * hash + this.y;
+        return hash;
+    }
 }

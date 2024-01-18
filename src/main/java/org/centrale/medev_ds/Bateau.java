@@ -21,8 +21,8 @@ public class Bateau {
     }
     
     public void adicionarCoordenada(int x, int y) {
-        Coordonnee coordenada = new Coordonnee(x, y);
-        coordenadas.add(coordenada);
+        Coordonnee c = new Coordonnee(x, y);
+        this.coordenadas.add(c);
     }
     public void setPosition(int x_debut, int y_debut,int x_fin, int y_fin) {
         if (x_debut == x_fin) {
