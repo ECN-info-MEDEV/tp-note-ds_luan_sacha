@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Bateau {
     private int taille;
-    private List<Coordenada> coordenadas;
+    private List<Coordonnee> coordenadas;
     
     public Bateau(int taille) {
         this.taille = taille;
@@ -21,7 +21,7 @@ public class Bateau {
     }
     
     public void adicionarCoordenada(int x, int y) {
-        Coordenada coordenada = new Coordenada(x, y);
+        Coordonnee coordenada = new Coordonnee(x, y);
         coordenadas.add(coordenada);
     }
     public void setPosition(int x_debut, int y_debut,int x_fin, int y_fin) {
@@ -55,11 +55,11 @@ public class Bateau {
         this.taille = taille;
     }
 
-    public List<Coordenada> getCoordenadas() {
+    public List<Coordonnee> getCoordenadas() {
         return coordenadas;
     }
 
-    public void setCoordenadas(List<Coordenada> coordenadas) {
+    public void setCoordenadas(List<Coordonnee> coordenadas) {
         this.coordenadas = coordenadas;
     }
     
@@ -67,21 +67,4 @@ public class Bateau {
         
 }
     
-      
-class Coordenada {
-    private int x;
-    private int y;
-
-    public Coordenada(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-}
+     
