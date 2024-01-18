@@ -8,6 +8,8 @@ package org.centrale.medev_ds;
  *
  * @author sacha
  */
-public class Destroyer {
-    
+public class Destroyer extends Bateau{
+    public Destroyer() {
+       super(3);
+    }
 }

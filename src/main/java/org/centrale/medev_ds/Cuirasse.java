@@ -4,10 +4,14 @@
  */
 package org.centrale.medev_ds;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sacha
  */
-public class Cuirasse {
-    
+public class Cuirasse extends Bateau{
+    public Cuirasse() {
+       super(4);
+    }
 }

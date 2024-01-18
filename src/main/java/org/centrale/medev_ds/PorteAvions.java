@@ -8,6 +8,8 @@ package org.centrale.medev_ds;
  *
  * @author sacha
  */
-public class PorteAvions {
-    
+public class PorteAvions extends Bateau {
+    public PorteAvions() {
+       super(5);
+    }
 }
