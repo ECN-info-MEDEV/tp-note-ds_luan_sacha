@@ -32,6 +32,10 @@ public class BatailleNavale {
         }
     }
     
+    /**
+     * Place les navires au début du jeu
+     * @param j
+     */
     public static void placementNavires(Joueur j){
         System.out.println("Placement des navires");
         ArrayList<Bateau> bateauxPlacer = new ArrayList();
