@@ -12,6 +12,11 @@ import java.util.ArrayList;
  */
 public class Joueur {
     private ArrayList<Bateau> listeBateau;
+    private boolean est1;
+    
+    public Joueur(){
+        listeBateau = new ArrayList();
+    }
 
     public ArrayList<Bateau> getListeBateau() {
         return listeBateau;
@@ -19,6 +24,14 @@ public class Joueur {
 
     public void setListeBateau(ArrayList<Bateau> listeBateau) {
         this.listeBateau = listeBateau;
+    }
+
+    public boolean isEst1() {
+        return est1;
+    }
+
+    public void setEst1(boolean est1) {
+        this.est1 = est1;
     }
     
     

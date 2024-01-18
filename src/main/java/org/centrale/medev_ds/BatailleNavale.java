@@ -25,7 +25,10 @@ public class BatailleNavale {
         System.out.println("Choisissez la taille de la grille :");
         tailleGrille = sc.nextInt();
         j1 = new Joueur();
+        j1.setEst1(true);
         j2 = new Joueur();
+        j2.setEst1(false);
+
     }
     
     /**
@@ -51,7 +54,7 @@ public class BatailleNavale {
      * Un bateau ne peut être placé qu'en position verticale ou horizontale.
      * @param j Joueur qui doit placer ses navires
      */
-    public static void placementNavires(Joueur j) {
+    public void placementNavires(Joueur j) {
         System.out.println("Placement des navires");
         ArrayList<Bateau> bateauxPlacer = new ArrayList();
         bateauxPlacer.add(new Cuirasse());
@@ -60,7 +63,7 @@ public class BatailleNavale {
         int posx;
         int posy;
         for (Bateau b: bateauxPlacer){
-            System.out.println("Placer le "+ b.getClass().getName());
+            System.out.println("Placer le "+ b.getClass().getSimpleName());
             System.out.println("Taille : "+b.getTaille());
             System.out.println("Vous devrez inscrire les coordonnées initiales et finales correspondant aux deux bouts du bateau\nUn bateau ne peut être que en position verticale ou horizontale\n");
             boolean valide = false;
@@ -94,7 +97,7 @@ public class BatailleNavale {
      * @param j Le joueur pour lequel afficher la grille.
      * @param tailleGrille La taille de la grille.
      */
-    public static void afficheGrilleBateau(Joueur j, int tailleGrille) {
+    public void afficheGrilleBateau(Joueur j, int tailleGrille) {
         char[][] grille = new char[tailleGrille][tailleGrille];
         for (char[] row : grille) {
             Arrays.fill(row, '.');
@@ -128,4 +131,31 @@ public class BatailleNavale {
         // À compléter selon la logique du tour de jeu
         return true;
     }
+
+    public int getTailleGrille() {
+        return tailleGrille;
+    }
+
+    public void setTailleGrille(int tailleGrille) {
+        this.tailleGrille = tailleGrille;
+    }
+
+    public Joueur getJ1() {
+        return j1;
+    }
+
+    public void setJ1(Joueur j1) {
+        this.j1 = j1;
+    }
+
+    public Joueur getJ2() {
+        return j2;
+    }
+
+    public void setJ2(Joueur j2) {
+        this.j2 = j2;
+    }
+    
+    
+    
 }
