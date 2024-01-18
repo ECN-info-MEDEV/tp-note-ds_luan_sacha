@@ -14,6 +14,8 @@ package org.centrale.medev_ds;
 public class MEDEV_DS {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Bataille Navale");
+        BatailleNavale b = new BatailleNavale();
+        b.init();
     }
 }
