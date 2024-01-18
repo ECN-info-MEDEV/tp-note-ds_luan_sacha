@@ -1,6 +1,7 @@
 package org.centrale.medev_ds;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -45,7 +46,7 @@ public class BatailleNavale {
         int posx;
         int posy;
         for (Bateau b: bateauxPlacer){
-            System.out.println("Placer le "+ b.getClass().getName());
+            System.out.println("Placer le "+ b.getClass.getName());
             System.out.println("Taille : "+b.getTaille());
             System.out.println("Vous devrez inscrire les coordonnées initiales et finales correspondant aux deux bouts du bateau\nUn bateau ne peut être que en position verticale ou horizontale\n");
             boolean valide = false;
@@ -64,15 +65,39 @@ public class BatailleNavale {
                 if((debutX == finX || debutY == finY) && tailleCalculee == b.getTaille()) {
                     b.setPosition(debutX, debutY, finX, finY); 
                     valide = true;
+                    j.getListeBateau().add(b);
                 } else {
                     System.out.println("Placement invalide. Veuillez entrer des coordonnées valides pour un bateau de taille " + b.getTaille());
                 }
             }
             
         }
-        j.setListeBateau(bateauxPlacer);
     }
     
+    public static void afficheGrilleBateau(Joueur j, int tailleGrille){
+        char[][] grille = new char[tailleGrille][tailleGrille];
+            for (char[] row : grille) {
+            Arrays.fill(row, '.');
+        }
+        for (Bateau b : j.getListeBateau()) {
+            for (Coordonnee c : b.getCoordenadas()) { 
+                grille[c.getX()][c.getY()] = 'O'; 
+            }
+        }
+        System.out.print(" ");
+        for (int i = 0; i < tailleGrille; i++) {
+            System.out.print(" " + i);
+        }
+        System.out.println();
+        for (int i = 0; i < tailleGrille; i++) {
+            System.out.print(i + " ");
+            for (int k = 0; k < tailleGrille; k++) {
+                System.out.print(grille[i][k] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println(); 
+    }
     
     public static boolean tourDeJeu(Joueur j){
         
