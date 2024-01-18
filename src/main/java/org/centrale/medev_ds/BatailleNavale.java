@@ -46,7 +46,7 @@ public class BatailleNavale {
         int posx;
         int posy;
         for (Bateau b: bateauxPlacer){
-            System.out.println("Placer le "+ b.getClass.getName());
+            System.out.println("Placer le "+ b.getClass().getName());
             System.out.println("Taille : "+b.getTaille());
             System.out.println("Vous devrez inscrire les coordonnées initiales et finales correspondant aux deux bouts du bateau\nUn bateau ne peut être que en position verticale ou horizontale\n");
             boolean valide = false;
